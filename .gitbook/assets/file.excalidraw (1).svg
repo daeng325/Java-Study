@@ -1,0 +1,16 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 289 55" width="289" height="55">
+  <!-- svg-source:excalidraw -->
+  <!-- payload-type:application/vnd.excalidraw+json --><!-- payload-version:2 --><!-- payload-start -->eyJ2ZXJzaW9uIjoiMSIsImVuY29kaW5nIjoiYnN0cmluZyIsImNvbXByZXNzZWQiOnRydWUsImVuY29kZWQiOiJ4nHVTS4+bMFx1MDAxML7vr0DkWu1CeCTsrY9ttT2sWqVSXHUwMDBmVVU5MICDYyPbJKRR/nvHToSB3fpgab55fPM833mer08t+I+eXHUwMDBmfU5cdTAwMTgtJDn671xmflx1MDAwMKmo4KhaWlmJTubWsta6VY9cdTAwMGZcdTAwMGakbe8rqrdCNPe52F/dgMFcdTAwMWW4Vmj4XHUwMDBiZc87239EpKHX1taiI5rlXHUwMDFjfFx1MDAxMdwyhnGYrKI4i4PBgqpPyKShQHVJmFx1MDAwMqcxkFx1MDAxZr7sdmVCt+Lb90rs+v7LnyrfOdaSMrbRJ3ath+R1J8FplZaigZ+00LVhn+GDn1x1MDAxMtgv5yVFV9VcdTAwMWOUmviIluRUn1xmXHUwMDE2uPRcdK9sXGaH9CjF2WqQrUc65/4omJCGe1x1MDAxMdjn2LckbypMgVx1MDAxN4ONloSrlkhcdTAwMWOHszveqlqm2YDVQKtaI1x1MDAxOCWOXHUwMDBmbG/DOF6n0SrI3HBcZkv7XFzYXHT/XHUwMDFlV8+LW/W8Y8wlZlx1MDAxNE+jrXA+XVuQ61xiw3SVheskXHUwMDBl0iyLXHUwMDA2PaO8mYdjXCJv3ph6Kbje0L+mp8v1XHUwMDA0/Uz2lJ0mM7FcdTAwMWKIXHJ6KkvINT2A95VcdTAwMWOIt4jG7VSA9DZeMnF8z2hl1tVnUE73WFO8oEGtReu0OSZCMJx8LuZcdTAwMDVcdEkrylx0+/HfpKzlXHUwMDA1f9s5XHUwMDFmz26jsW9ofL0tnFxiLW7Fu9D+gcLxw+utWJT2mahcdTAwMTdcdTAwMWJcdTAwMGZvXHUwMDAxzGDOl7vLP7WvXHUwMDEydiJ9<!-- payload-end -->
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@0.14.2/dist/excalidraw-assets/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://unpkg.com/@excalidraw/excalidraw@0.14.2/dist/excalidraw-assets/Cascadia.woff2");
+      }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="289" height="55" fill="#ffffff"/><g transform="translate(10 10) rotate(0 134.5 17.5)"><text x="0" y="25" font-family="Virgil, Segoe UI Emoji" font-size="28px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr">Effective Java #3</text></g></svg>
