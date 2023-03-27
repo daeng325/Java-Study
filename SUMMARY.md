@@ -16,6 +16,10 @@
 * [item16. public 클래스에서는 public 필드가 아닌 접근자 메소드를 사용하라.](4-./item16.-public-public-..md)
 * [item21. 인터페이스는 구현하는 쪽을 생각해 설계하라.](4-./item21.-..md)
 
+## 5장. 제네릭
+
+* [item27. 비검사 경고를 제거하라.](5-./item27.-..md)
+
 ## 9장: 일반적인 프로그래밍 원칙
 
 * [item65. Reflection보다는 Interface를 사용하라.](9/item65.-reflection-interface-..md)
