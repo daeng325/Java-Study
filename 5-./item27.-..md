@@ -1,12 +1,82 @@
 # item27. 비검사 경고를 제거하라.
 
-제네릭을 지원하기 전에는 컬렉션에서 객체를 꺼낼 때마다 형변환을 해야 했다. 누군가 실수로 엉뚱한 타입의 객체를 넣어두면 런타임에 형변환 오류가 나곤 했다.&#x20;
+<details>
 
-반면, 제네릭을 사용하면 컬렉션이 담을 수 있는 타입을 컴파일러에 알려주게 된다. 그래서 컴파일러는 알아서 형변환 코드를 추가할 수 있게 되고, 엉뚱한 타입의 객체를 넣으려는 시도를 컴파일 과정에서 차단하여 더 안전하고 명확한 프로그램을 만들어 준다.&#x20;
+<summary>제네릭</summary>
 
-꼭 컬렉션이 아니더라도 이러한 이점을 누릴 수 있으나, 코드가 복잡해진다는 단점이 따라온다. 이번 장에서는 제네릭의 이점을 최대로 살리고 단점을 최소화하는 방법을 이야기한다.&#x20;
+제네릭 타입을 이용함으로써 잘못된 타입이 사용될 수 있는 문제를 컴파일 과정에서 제거할 수 있게 되었다. 메소드를 정의할 때 type을 parameter로 사용할 수 있도록 한다. 타입 파라미터는 코드 작성 시 구체적인 타입으로 대체되어 다양한 코드를 생성하도록 해준다.
 
+## 제네릭의 이점
 
+* 컴파일 시 강한 타입 체크를 할 수 있다.&#x20;
+* 타입 변환(casting)을 제거한다.&#x20;
+  * 비제네릭 코드는 불필요한 타입 변환을 하기 때문에 프로그램 성능에 악영향을 미친다.&#x20;
+
+```java
+List list = new ArrayList();
+list.add("hello");
+String str = (String) list.get(0);// 타입 변환을 해야 한다. 
+```
+
+```java
+List<String> list = new ArrayList<String>();
+list.add("hello");
+String str = list.get(0); // 타입 변환을 하지 않는다. (프로그램 성능 향상)
+```
+
+## 와일드카드 타입 `(<?>, <? extends ...>, <? super ...>)`
+
+코드에서 ?를 일반적으로 와일드카드(wildcard)라고 부른다. 제네릭 타입을 매개값이나 리턴 타입으로 사용할 때 구체적인 타입 대신에 와일드카드를 다음과 같이 세 가지 형태로 사용할 수 있다.&#x20;
+
+```java
+public class Course<T> {
+    private String name;
+    private T[] students;
+
+    public Course(String name, int capacity) {
+        this.name = name;
+        this.students = (T[]) (new Object[capacity]); // 타입 파라미터로 배열을 생성하려면 new T[n] 형태로 배열을 생성할 수 없고 (T[]) (new Object[n]으로 생성해야 한다.)
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public T[] getStudents() {
+        return students;
+    }
+    
+    public void add(T t) {
+        // 배열에 비어 있는 부분을 찾아서 수강생을 추가하는 메소드
+        for (int i = 0; i < students.length; i++) {
+            if (students[i] == null) {
+                students[i] = t;
+                break;
+            }
+        }
+    }
+}
+
+```
+
+*
+
+    <figure><img src="../.gitbook/assets/file.excalidraw (2).svg" alt=""><figcaption></figcaption></figure>
+* `Course<?>`: Unbounded Wildcards (제한 없음)
+  * 수강생은 모든 타입(Person, Worker, Student, HighStudent, Dog)이 될 수 있다.
+* `Course<? extends Student>`: Upper Bounded Wildcards (상위 클래스 제한)
+  * 수강생은 Student와 HighStudent만 될 수 있다.&#x20;
+* `Course<? super Worker>`: Lower Bounded Wildcards (하위 클래스 제한)
+  * 수강생은 Worker와 Person만 될 수 있다.&#x20;
+
+### 제네릭 타입\<T>와 와일드 카드\<?>의 차이는?
+
+* 제네릭 : 타입을 모르지만, 타입을 정해지면 그 타입의 특성에 맞게 사용한다.
+* 와일드 카드 : 무슨 타입인지 모르고, 무슨 타입인지 신경쓰지 않는다. 타입을 확정하지 않고 가능성을 열어둔다.
+
+특정 타입을 지정하여 타입에 따른 메소드를 사용하고 싶다면 타입을 사용해야 한다.
+
+</details>
 
 ## 비검사 경고란?
 
@@ -20,7 +90,7 @@
 * 비검사 변환 경고
 * ...
 
-제네릭에 익숙해질수록 마주치는 경고 수는 줄겠지만 새로 작성한 코드가 한 번에 개끗하게 컴파일되리라 기대하지는 말자.&#x20;
+제네릭에 익숙해질수록 마주치는 경고 수는 줄겠지만 새로 작성한 코드가 한 번에 깨끗하게 컴파일 되리라 기대하지는 말자.&#x20;
 
 대부분의 비검사 경고는 쉽게 제거할 수 있다. 코드를 다음처럼 잘못 작성했다고 해보자.&#x20;
 
@@ -36,7 +106,7 @@ Set<String> exaltation = new HashSet();
 
 *
 
-    <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -99,6 +169,8 @@ public <T> T[] toArray(T[] a) {
 > ```
 
 어노테이션은 선언에만 달 수 있기 때문에 return문에는 `@SuppressWarnings`를 다는 게 불가능하다. 그렇다면 이제 메소드 전체에 달고 싶겠지만, 범위가 필요 이상으로 넓어지니 자제하자. 그 대신 반환값을 담을 지역변수를 하나 선언하고 그 변수에 어노테이션을 달아주자.
+
+* 이를 위해 지역변수를 새로 선언하는 수고를 해야 할 수도 있지만, 그만한 값어치가 있을 것이다.&#x20;
 
 {% code title="ArrayList.toArray 수정" %}
 ```java
