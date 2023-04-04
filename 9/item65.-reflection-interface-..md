@@ -125,7 +125,7 @@ public static void main(String[] args) {
 
 *
 
-    <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 하지만 `Class<? extends Set<String>>` 으로의 형변환은 심지어 명시한 클래스가 Set을 구현하지 않았더라도 성공한다. 단, 그 클래스의 인스턴스를 생성하려 할 때 `ClassCastException`을 던지게 된다. 이 경고를 숨기는 방법은 아이템 27 참고.
 
