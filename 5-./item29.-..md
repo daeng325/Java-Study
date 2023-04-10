@@ -135,7 +135,7 @@ public class Stack<E> {
 
 #### 컴파일 오류 고치기
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 item28 (배열보다는 리스트를 사용하라) 에서  설명한 것처럼, E와 같은 실체화 불가 타입으로는 배열을 만들 수 없다.&#x20;
 

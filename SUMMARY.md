@@ -25,3 +25,7 @@
 
 * [item65. Reflection보다는 Interface를 사용하라.](9/item65.-reflection-interface-..md)
 * [item67. 최적화는 신중히 하라.](9/item67.-..md)
+
+## 6장. 열거 타입과 어노테이션
+
+* [item34. int 상수 대신 열거 타입(enum)을 사용하라.](6-./item34.-int-enum-..md)
