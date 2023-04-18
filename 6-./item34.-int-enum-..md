@@ -79,6 +79,7 @@ public enum Orange { NAVEL, TEMPLE, BLOOD }
 
 열거 타입 상수 각각을 특정 데이터와 연결지으려면 생성자에서 데이터를 받아 인스턴스 필드에 저장하면 된다.&#x20;
 
+{% code overflow="wrap" %}
 ```java
 package com.company.effectiveJava.item34;
 
@@ -93,6 +94,8 @@ public enum Planet {
     URANUS(8.683e+25, 2.556e7),
     NEPTUNE(1.024e+26, 2.477e7);
 
+    // 열거 타입은 근본적으로 불변이라 모든 필드가 final이어야 한다.
+    // 필드를 public으로 선언해도 되지만, private으로 두고 별도의 public 접근자 메소드를 두자. (item16)
     private final double mass;           // 질량(단위: 킬로그램)
     private final double radius;         // 반지름(단위: 미터)
     private final double surfaceGravity; // 표면중력(단위: m / s^2)
@@ -116,6 +119,7 @@ public enum Planet {
     }
 }
 ```
+{% endcode %}
 
 ```java
 package com.company.effectiveJava.item34;
