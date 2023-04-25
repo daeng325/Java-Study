@@ -29,3 +29,4 @@
 ## 6장. 열거 타입과 어노테이션
 
 * [item34. int 상수 대신 열거 타입(enum)을 사용하라.](6-./item34.-int-enum-..md)
+* [item40. @Override 어노테이션을 일관되게 사용하라.](6-./item40.-override-..md)
