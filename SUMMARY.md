@@ -21,12 +21,16 @@
 * [item27. 비검사 경고를 제거하라.](5-./item27.-..md)
 * [item29. 이왕이면 제네릭 타입으로 만들라.](5-./item29.-..md)
 
+## 6장. 열거 타입과 어노테이션
+
+* [item34. int 상수 대신 열거 타입(enum)을 사용하라.](6-./item34.-int-enum-..md)
+* [item40. @Override 어노테이션을 일관되게 사용하라.](6-./item40.-override-..md)
+
 ## 9장: 일반적인 프로그래밍 원칙
 
 * [item65. Reflection보다는 Interface를 사용하라.](9/item65.-reflection-interface-..md)
 * [item67. 최적화는 신중히 하라.](9/item67.-..md)
 
-## 6장. 열거 타입과 어노테이션
+## 7장. 람다와 스트림
 
-* [item34. int 상수 대신 열거 타입(enum)을 사용하라.](6-./item34.-int-enum-..md)
-* [item40. @Override 어노테이션을 일관되게 사용하라.](6-./item40.-override-..md)
+* [item43. 람다보다는 메소드 참조를 사용하라.](7-./item43.-..md)
