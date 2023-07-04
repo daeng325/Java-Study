@@ -1,5 +1,7 @@
 # item55. Optional 반환은 신중히 하라.
 
+## Optional\<T> 이란?
+
 자바8 이전 메소드가 특정 조건에서 값을 반환할 수 없을 때 취할 수 있는 선택지
 
 1. 예외를 던진다.
@@ -62,7 +64,8 @@ public static <E extends Comparable<E>> Optional<E> max (Collection<E> c) {
 Optional을 반환하도록 구현하기는 어렵지 않다. 적절한 static factory method를 사용해 Optional을 생성해주기만 하면 된다.&#x20;
 
 * 빈 Optional반환 :  Optional.empty()
-* 값이 든 Optional 반환: Optional.of(value), Optional.ofNullable(value)
+* 값이 든 Optional 반환: Optional.of(value)
+* 값이 들었거나 null값인 Optional 반환: Optional.ofNullable(value)
 
 {% hint style="info" %}
 Optional을 반환하는 메소드에서는 절대 null을 반환하지 말자. Optional을 도입한 취지를 완전히 무시하는 행위이다.
@@ -75,6 +78,8 @@ null을 반환하거나 예외를 던지는 대신 Optional 반환을 선택해�
 **Optional은 Checked Exception과 취지가 비슷하다(item 71).** 즉, 반환값이 없을 수도 있음을 API 사용자에게 명확히 알려준다. Unchecked Exception을 던지거나 null을 반환한다면 API 사용자가 그 사실을 인지하지 못해 끔찍한 결과로 이어질 수 있다. 하지만 Checked Exception을 던지면 클라이언트에서는 반드시 이에 대처하는 코드를 작성해야 한다.&#x20;
 
 
+
+## Optional 처리 방법
 
 메소드가 Optional을 반환한다면 클라이언트는 값을 받지 못했을 때 취할 행동을 선택해야 한다.&#x20;
 
@@ -200,3 +205,23 @@ Set<String> result = stream.filter(Optional::isPresent)
                              .collect(toSet());
 ```
 
+
+
+## Optional 관련 주의사항
+
+* 컬렉션, 스트림, 배열, Optional 같은 컨테이너 타입은 Optional로 감싸면 안 된다.&#x20;
+* 결과가 없을 수 있으며, 클라이언트가 이 상황을 특별하게 처리해야 한다면 Optional\<T>를 반환한다.&#x20;
+* 성능이 중요한 상황에서는 Optional 반환 또한 엄연히 새로 할당하고 초기화해야 하는 객체이고, 그 안에서 값을 꺼내려면 메소드를 호출해야 하므로 Optional 사용을 고려해봐야 한다.&#x20;
+* 박싱된 기본 타입을 담는 Optional이라면 OptionalInt, OptionalLong, OptionalDouble 등을 사용하자.&#x20;
+  * Boolean, Byte, Character, Short, Float는 예외
+* Optional을 컬렉션의 key, value, element나 배열의 원소로  사용하지 말자.
+
+
+
+{% hint style="success" %}
+💡
+
+값을 반환하지 못할 가능성이 있고, 호출할 때마다 반환값이 없을 가능성을 염두에 둬야 하는 메소드라면 Optional을 반환해야 할 상황일 수 있다. 하지만 Optional 반환에는 성능 저하가 뒤따르니, 성능에 민감한 메소드라면 null을 반환하거나 예외를 던지는 편이 나을 수도 있다.&#x20;
+
+그리고 Optional을 반환값 이외의 용도로 쓰는 경우는 매우 드물다.
+{% endhint %}
